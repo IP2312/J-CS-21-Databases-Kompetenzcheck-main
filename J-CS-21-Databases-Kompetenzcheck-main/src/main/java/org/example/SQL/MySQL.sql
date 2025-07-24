@@ -32,6 +32,6 @@ create table if not exists person
 );
 
 
-SELECT *
-FROM PM;
+SELECT * FROM PM;
+
 

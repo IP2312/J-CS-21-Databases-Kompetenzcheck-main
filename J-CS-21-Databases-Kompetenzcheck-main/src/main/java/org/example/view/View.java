@@ -9,7 +9,7 @@ public class View {
     Scanner scanner = new Scanner(System.in);
 
     public boolean chooseStorage(){
-        System.out.println("Store Data in Database? (y/n)");
+        System.out.println("Use Database? (y/n)");
         while (true) {
             String input = scanner.nextLine().trim();
             if (input.equalsIgnoreCase("y")) {
@@ -39,7 +39,14 @@ public class View {
 
     public PM getPMInfo(){
         System.out.println("Please enter the location of the PM:");
-        String location = scanner.nextLine().trim();
-        return new PM(location);
+        while(true){
+            try {
+                String location = scanner.nextLine().trim();
+                return new PM(location);
+            }catch (IllegalArgumentException e){
+                System.out.println(e.getMessage());
+            }
+        }
+
     }
 }

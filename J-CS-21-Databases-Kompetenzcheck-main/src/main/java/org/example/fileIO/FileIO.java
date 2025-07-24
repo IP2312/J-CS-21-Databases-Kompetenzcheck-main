@@ -1,7 +1,9 @@
 package org.example.fileIO;
 
-public interface Writer <T>{
-    T read(int id);
+import java.io.IOException;
+
+public interface FileIO<T>{
+    T read(int id) throws IOException;
 
     int write(T t);
 

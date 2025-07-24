@@ -2,7 +2,6 @@ package org.example;
 
 import org.example.controller.Controller;
 import org.example.controller.PMController;
-import org.example.dao.PMDAOImpl;
 import org.example.enums.Action;
 import org.example.view.View;
 
@@ -10,7 +9,7 @@ public class Main {
     public static void main(String[] args) {
         View view = new View();
         Controller controller = new Controller(view);
-        PMController pmController = new PMController(new PMDAOImpl(), view);
+        PMController pmController = new PMController(view);
 
 
 
