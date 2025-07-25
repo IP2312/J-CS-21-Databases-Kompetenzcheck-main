@@ -18,8 +18,9 @@ public class PMController {
 
     public void addPM(boolean storeInDB){
         PM pm = view.getPMInfo();
+        int id;
         if (storeInDB){
-                pmDAO.insert(pm);
+                 id = pmDAO.insert(pm);
         }else{
             pmIO.write(pm);
         }

@@ -31,6 +31,7 @@ public class PMIOImpl implements PMIO {
                 bw.write( 1 + "," + pm.getLocation());
             }else{
                 bw.newLine();
+                //TODO id
                 bw.write(pm.getId() + "," + pm.getLocation());
             }
             bw.flush();

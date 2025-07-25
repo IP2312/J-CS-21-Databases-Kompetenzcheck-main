@@ -5,14 +5,22 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DBConnector {
-    private String dbName = "pv";
+
+    private static boolean isTestMode = false;
+    private static DBConnector connector = null;
+
     private String username = "root";
     private String password = "9Y9tpOo2bBQpO5";
-    private String url = "jdbc:mysql://localhost:3306/" + dbName; //URL zum lokalen MySQL-Server und Datenbank db_name
-    private static DBConnector connector = null;
     private Connection connection;
 
+    public static void setTestMode(boolean testMode){
+        isTestMode = testMode;
+    }
+
+
     public DBConnector() throws SQLException {
+         String dbName =  isTestMode ? "pmtest" : "pm";
+         String url = "jdbc:mysql://localhost:3306/" + dbName;
         try{
             Class.forName("com.mysql.cj.jdbc.Driver"); //Driver "com.mysql.cj.jdbc.Driver" laden
             connection = DriverManager.getConnection(url, username, password); // Verbindung mit der Datenbank herstellen und in Variable connection speichern

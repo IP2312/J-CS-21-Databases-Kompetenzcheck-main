@@ -1,15 +1,20 @@
-CREATE DATABASE IF NOT EXISTS pv DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+# CREATE DATABASE IF NOT EXISTS pm DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 
 
-use pv;
-create table if not exists PM
+
+Drop table if exists person;
+Drop table if exists PM;
+Drop table if exists address;
+
+create table PM
 (
     id int primary key auto_increment,
     location varchar(255) NOT NULL,
     Unique (location)
 );
 
-create table if not exists address
+
+create table address
 (
     id      int primary key auto_increment,
     street  varchar(255),
@@ -19,7 +24,7 @@ create table if not exists address
     no      int
 );
 
-create table if not exists person
+create table person
 (
     id         int primary key auto_increment,
     first_name varchar(255),
